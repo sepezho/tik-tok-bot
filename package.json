@@ -1,0 +1,27 @@
+{
+  "name": "inststorydownloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "*",
+    "chromedriver": "^94.0.0",
+    "fs": "*",
+    "https": "^1.0.0",
+    "jsdom": "^18.0.0",
+    "playwright": "^1.15.2",
+    "puppeteer": "^10.4.0",
+    "request-promise": "^4.2.6",
+    "selenium-webdriver": "^4.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.15.2",
+    "@types/node": "^16.10.2"
+  }
+}
