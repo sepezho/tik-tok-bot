@@ -1,4 +1,3 @@
-require("chromedriver");
 const webdriver = require("selenium-webdriver");
 
 const upload = (driver, url, consolelog) =>

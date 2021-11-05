@@ -9,9 +9,8 @@ const util = require("util");
 const readdir = util.promisify(fs.readdir);
 
 const includedFiles = ".mp4";
-const rootFolder = "/Users/sepezho/Downloads/IST_DATA";
-const storiesFolder = rootFolder + "/media/stories";
-//const storiesFolder = "/tik-tok-bot"
+const folder = "/Users/sepezho/Downloads/IST_DATA/media/stories";
+//const folder = "/tik-tok-bot"
 
 const app = async () => {
 	const options = new firefox.Options();
@@ -39,12 +38,12 @@ const app = async () => {
 
 	const videoUrls = [];
 	console.log("------------------");
-	await readdir(storiesFolder, async (_, foldersArr) => {
+	await readdir(folder, async (_, foldersArr) => {
 		let elements = 0;
 		let folders = 0;
 		await Promise.all(
 			foldersArr.sort().map(async (folder) => {
-				await readdir(`${storiesFolder}/${folder}/`, async (_, filesArr) => {
+				await readdir(`${folder}/${folder}/`, async (_, filesArr) => {
 					folders++;
 					if (filesArr) {
 						let files = 0;
@@ -54,7 +53,7 @@ const app = async () => {
 								.map(async (file) => {
 									files++;
 									elements++;
-									videoUrls.push(`${storiesFolder}/${folder}/${file}`);
+									videoUrls.push(`${folder}/${folder}/${file}`);
 									if (
 										!filesArr.filter((s) => s.includes(includedFiles))[files] &&
 										!foldersArr[folders]
