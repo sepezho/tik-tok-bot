@@ -1,5 +1,6 @@
-require("chromedriver");
 const webdriver = require("selenium-webdriver");
+const firefox = require("selenium-webdriver/firefox");
+
 const cookiesModule = require("./cookies");
 const upload = require("./upload");
 
@@ -7,12 +8,22 @@ const fs = require("fs");
 const util = require("util");
 const readdir = util.promisify(fs.readdir);
 
+const includedFiles = ".mp4";
 const rootFolder = "/Users/sepezho/Downloads/IST_DATA";
 const storiesFolder = rootFolder + "/media/stories";
-const includedFiles = ".mp4";
+//const storiesFolder = "/tik-tok-bot"
 
 const app = async () => {
-	const driver = new webdriver.Builder().forBrowser("chrome").build();
+	const options = new firefox.Options();
+
+	options.addArguments("-headless");
+	options.addArguments("-standalone");
+
+	const driver = new webdriver.Builder()
+		.forBrowser("firefox")
+		.setFirefoxOptions(options)
+		.build();
+
 	await driver.get("https://www.tiktok.com");
 
 	if (cookiesModule.cookies.find((e) => e.name === "sessionid")) {
@@ -70,7 +81,3 @@ const app = async () => {
 };
 
 app();
-cookiesModule.setCookies();
-
-// 243220796_592264591905403_6641425870994584131_n_17948459671557931
-// 000000000_000000000000000_0000000000000000000_n_2686656624118093700

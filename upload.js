@@ -41,7 +41,7 @@ const upload = (driver, url, consolelog) =>
 		}
 	}).catch(async () => {
 		await driver.navigate().refresh();
-		upload(driver, url, consolelog);
+		await upload(driver, url, consolelog);
 	});
 
 module.exports = upload;
