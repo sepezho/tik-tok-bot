@@ -15,8 +15,8 @@ const folder = "/Users/sepezho/Downloads/IST_DATA/media/stories";
 const app = async () => {
 	const options = new firefox.Options();
 
-	options.addArguments("-headless");
-	options.addArguments("-standalone");
+	// options.addArguments("-headless");
+	// options.addArguments("-standalone");
 
 	const driver = new webdriver.Builder()
 		.forBrowser("firefox")
