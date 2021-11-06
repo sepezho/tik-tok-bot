@@ -5,7 +5,10 @@ const setCookies = (driver) =>
 		const interval = setInterval(async () => {
 			const cookies = await driver?.manage()?.getCookies();
 			if (cookies?.find((e) => e.name === "sessionid")) {
-				await fs.writeFileSync("./cookies.json", JSON.stringify(cookies));
+				await fs.writeFileSync(
+					"./cookies/cookies.json",
+					JSON.stringify(cookies)
+				);
 				clearInterval(interval);
 				console.log("Set cookies done.");
 				resolve();
@@ -15,5 +18,5 @@ const setCookies = (driver) =>
 
 module.exports = {
 	setCookies,
-	cookies: JSON.parse(fs.readFileSync("./cookies.json")),
+	cookies: JSON.parse(fs.readFileSync("./cookies/cookies.json")),
 };

@@ -1,7 +1,7 @@
 const webdriver = require("selenium-webdriver");
 const firefox = require("selenium-webdriver/firefox");
 
-const cookiesModule = require("./cookies");
+const cookiesModule = require("./cookies/cookies");
 const upload = require("./upload");
 
 const fs = require("fs");

@@ -1,0 +1,12 @@
+# - THIS FILE WILL BE CONTAIN AROUND 35 LINES OF UR COOKIES
+
+# - EXAMPLE BELOW
+
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+www.tiktok.com	FALSE	/login	FALSE	1642073088	MONITOR_WEB_ID	d8e0131d-c861-4a27-8929-1g11ccbfd12f
+www.tiktok.com	FALSE	/login	FALSE	1642073088	MONITOR_DEVICE_ID	65d13e0c-eaad-46d6-892c-829edb47d4a5
+
+# - AND ETC...
