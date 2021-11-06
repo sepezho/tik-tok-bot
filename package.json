@@ -1,7 +1,7 @@
 {
 	"name": "tik-tok-bot",
-	"version": "2.0.0",
-	"description": "This bot will post urs tiktoks",
+	"version": "2.2.0",
+	"description": "NodeJs TikTok bot that upload tiktoks automatically via terminal",
 	"main": "main.js",
 	"scripts": {
 		"start": "node main.js",
