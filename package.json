@@ -4,7 +4,7 @@
 	"description": "NodeJs TikTok bot that upload tiktoks automatically via terminal",
 	"main": "main.js",
 	"scripts": {
-		"start": "node main.js",
+		"start": "node ./main.js",
 		"logout": "node ./cookies/logout.js",
 		"convert": "node ./cookies/convert.js"
 	},

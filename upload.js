@@ -1,10 +1,7 @@
-const webdriver = require("selenium-webdriver");
-
-const upload = (driver, url, consolelog) =>
+const upload = (webdriver, driver, url, consolelog) =>
 	new Promise(async (resolve, reject) => {
 		try {
 			setTimeout(reject, 60000);
-
 			await driver
 				.wait(
 					webdriver.until.elementLocated(
@@ -12,9 +9,7 @@ const upload = (driver, url, consolelog) =>
 					)
 				)
 				.sendKeys(url);
-
 			console.log(`${consolelog} Uploading`);
-
 			await driver
 				.wait(
 					webdriver.until.elementLocated(
@@ -24,23 +19,30 @@ const upload = (driver, url, consolelog) =>
 					)
 				)
 				.click();
-
-			const nextBtn = await driver.wait(
-				webdriver.until.elementLocated(
-					webdriver.By.xpath("//*[text()='Upload another video']")
-				)
-			);
-
-			nextBtn.click();
-			resolve();
+			console.log(`${consolelog} Posted`);
 		} catch (e) {
-			console.log(`${consolelog} `, e);
 			console.log(`${consolelog} Crashed`);
+			console.log("╠═════", e);
 			reject();
 		}
+		try {
+			await driver
+				.wait(
+					webdriver.until.elementLocated(
+						webdriver.By.xpath("//*[text()='Upload another video']")
+					)
+				)
+				.click();
+			resolve();
+		} catch (e) {
+			console.log(`${consolelog} Crashed, but already posted`);
+			console.log("╠═════", e);
+			await driver.navigate().refresh();
+			resolve();
+		}
 	}).catch(async () => {
-		await driver.navigate().refresh();
-		await upload(driver, url, consolelog);
+		await driver.get("https://www.tiktok.com/upload?lang=en");
+		await upload(webdriver, driver, url, consolelog);
 	});
 
 module.exports = upload;
