@@ -6,6 +6,8 @@ const data = fs
 	.split(/\r?\n/)
 	.slice(4)
 	.map((e) => e.split("	"))
+    .filter((e) => e[0] === ".tiktok.com")
+    .filter((e) => e[5] === "sit_tt")
 	.map((e) => ({
 		name: e[5],
 		value: e[6],

@@ -7,12 +7,13 @@ const cookiesModule = require("./cookies/cookies");
 const worker = require("./worker");
 
 const includedFiles = ".mp4";
-const folder = "tok-tok-bot/media";
+//const folder = "tok-tok-bot/media";
+const folder = "/Users/sepezho/Code/projects/tik-tok-bot/media";
 
 const bot = async () => {
 	const options = new firefox.Options();
 
-	options.addArguments("-headless");
+//	options.addArguments("-headless");
 	options.addArguments("-standalone");
 
 	const driver = new webdriver.Builder()
@@ -36,7 +37,7 @@ const bot = async () => {
 
 	await readdir(folder, async (_, files) => {
 		if (files)
-			await Promise.all(
+            await Promise.all(
 				files
 					.filter((s) => s.includes(includedFiles))
 					.map(async (file) => {
